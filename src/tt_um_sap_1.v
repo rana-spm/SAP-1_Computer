@@ -11,9 +11,6 @@ module tt_um_sap_1 (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-    assign uio_oe = 8'b0;
-    assign ui_in = 8'b0;  
-    assign uio_in = 8'b0; 
     wire reset = ! rst_n;
     assign uio_out = 8'b0;
     assign uio_oe = 8'b0; 
