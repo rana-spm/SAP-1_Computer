@@ -19,13 +19,12 @@ set ::env(PL_TARGET_DENSITY) 0.6
 set ::env(CLOCK_PERIOD) "20"
 
 # Hold slack margin - Increase them in case you are getting hold violations.
-# Increased from 0.1 to 0.2 and from 0.05 to 0.1
 set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 1
 set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 1
 
 # RUN_LINTER, LINTER_INCLUDE_PDK_MODELS - Disabling the linter is not recommended!
-set ::env(RUN_LINTER) 100
-set ::env(LINTER_INCLUDE_PDK_MODELS) 100
+set ::env(RUN_LINTER) 1
+set ::env(LINTER_INCLUDE_PDK_MODELS) 1
 
 # Configuration docs: https://openlane.readthedocs.io/en/latest/reference/configuration.html
 
@@ -43,7 +42,7 @@ set ::env(RUN_KLAYOUT_DRC) 0
 
 # Don't put clock buffers on the outputs
 set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
-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
+
 # Allow use of specific sky130 cells
 set ::env(SYNTH_READ_BLACKBOX_LIB) 1
 
