@@ -8,7 +8,8 @@ module sap_1(
 
 
 reg[7:0] bus;
-reg[7:0] bus_reg; // Pipelined bus
+reg[7:0] bus_reg1;
+reg[7:0] bus_reg2;
 
 always @(*) begin
 	if (ir_en) begin
@@ -26,13 +27,17 @@ always @(*) begin
 	end
 end
 
-always @(posedge clk or posedge rst) begin
-	if (rst) begin
-		bus_reg <= 8'b0; 
-	end else begin 
-		bus_reg <= bus; // Pipelining the bus
-	end	
+always @(posedge clk) begin
+    if (rst) begin
+        bus_reg1 <= 8'b0;
+        bus_reg2 <= 8'b0;
+    end else begin
+        bus_reg1 <= bus;       // Pipelining the bus
+        bus_reg2 <= bus_reg1;  // Pipelining the bus
+    end
 end
+
+
 
 // Used to be wire rst; here
 wire hlt;
@@ -61,7 +66,7 @@ memory mem(
 	.clk(int_clk),
 	.rst(rst),
 	.load(mar_load),
-	.bus(bus_reg),
+	.bus(bus_reg2),
 	.out(mem_out)
 );
 
@@ -73,7 +78,7 @@ reg_a reg_a(
 	.clk(int_clk),
 	.rst(rst),
 	.load(a_load),
-	.bus(bus_reg),
+	.bus(bus_reg2),
 	.out(a_out)
 );
 
@@ -84,7 +89,7 @@ reg_b reg_b(
 	.clk(int_clk),
 	.rst(rst),
 	.load(b_load),
-	.bus(bus_reg),
+	.bus(bus_reg2),
 	.out(b_out)
 );
 
@@ -107,7 +112,7 @@ ir ir(
 	.clk(int_clk),
 	.rst(rst),
 	.load(ir_load),
-	.bus(bus_reg),
+	.bus(bus_reg2),
 	.out(ir_out)
 );
 
@@ -132,6 +137,6 @@ controller controller(
 	})
 );
 
-assign bus_out = bus_reg;
+assign bus_out = bus_reg2;
 
 endmodule
