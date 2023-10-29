@@ -28,7 +28,7 @@ localparam OP_HLT = 4'b1111;
 reg[2:0]  stage;
 reg[11:0] ctrl_word;
 
-always @(posedge clk) begin
+always @(negedge clk) begin
 	if (rst) begin
 		stage <= 0;
 	end else begin
