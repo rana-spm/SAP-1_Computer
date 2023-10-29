@@ -9,7 +9,7 @@ module pc(
 
 reg[3:0] pc;
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) begin
 		pc <= 4'b0;
 	end else if (inc) begin

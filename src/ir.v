@@ -10,7 +10,7 @@ module ir(
 
 reg[7:0] ir;
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) begin
 		ir <= 8'b0;
 	end else if (load) begin

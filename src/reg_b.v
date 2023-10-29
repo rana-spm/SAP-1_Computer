@@ -10,7 +10,7 @@ module reg_b(
 
 reg[7:0] reg_b;
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) begin
 		reg_b <= 8'b0;
 	end else if (load) begin

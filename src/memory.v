@@ -33,7 +33,7 @@ initial begin
 
 end
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk) begin
 	if (rst) begin
 		mar <= 4'b0;
 	end else if (load) begin
