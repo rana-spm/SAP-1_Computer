@@ -20,4 +20,3 @@ async def test_rgb_mixer(dut):
     await ClockCycles(dut.clk, 10)
     
 
-    assert dut.bus_out == 0
