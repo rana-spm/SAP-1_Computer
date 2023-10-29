@@ -43,65 +43,65 @@ end
 reg [11:0] ctrl_word_next; // New register for next stage values
 
 always @(posedge clk) begin
-	ctrl_word_next = 12'b0;
+	ctrl_word_next <= 12'b0;
 
 	case (stage)
 		0: begin
-			ctrl_word_next[SIG_PC_EN] = 1;
-			ctrl_word_next[SIG_MEM_LOAD] = 1;
+			ctrl_word_next[SIG_PC_EN] <= 1;
+			ctrl_word_next[SIG_MEM_LOAD] <= 1;
 		end
 		1: begin
-			ctrl_word_next[SIG_PC_INC] = 1;
+			ctrl_word_next[SIG_PC_INC] <= 1;
 		end
 		2: begin
-			ctrl_word_next[SIG_MEM_EN] = 1;
-			ctrl_word_next[SIG_IR_LOAD] = 1;
+			ctrl_word_next[SIG_MEM_EN] <= 1;
+			ctrl_word_next[SIG_IR_LOAD] <= 1;
 		end
 		3: begin
 			case (opcode)
 				OP_LDA: begin
-					ctrl_word_next[SIG_IR_EN] = 1;
-					ctrl_word_next[SIG_MEM_LOAD] = 1;
+					ctrl_word_next[SIG_IR_EN] <= 1;
+					ctrl_word_next[SIG_MEM_LOAD] <= 1;
 				end
 				OP_ADD: begin
-					ctrl_word_next[SIG_IR_EN] = 1;
-					ctrl_word_next[SIG_MEM_LOAD] = 1;
+					ctrl_word_next[SIG_IR_EN] <= 1;
+					ctrl_word_next[SIG_MEM_LOAD] <= 1;
 				end
 				OP_SUB: begin
-					ctrl_word_next[SIG_IR_EN] = 1;
-					ctrl_word_next[SIG_MEM_LOAD] = 1;
+					ctrl_word_next[SIG_IR_EN] <= 1;
+					ctrl_word_next[SIG_MEM_LOAD] <= 1;
 				end
 				OP_HLT: begin
-					ctrl_word_next[SIG_HLT] = 1;
+					ctrl_word_next[SIG_HLT] <= 1;
 				end
 			endcase
 		end
 		4: begin
 			case (opcode)
 				OP_LDA: begin
-					ctrl_word_next[SIG_MEM_EN] = 1;
-					ctrl_word_next[SIG_A_LOAD] = 1;
+					ctrl_word_next[SIG_MEM_EN] <= 1;
+					ctrl_word_next[SIG_A_LOAD] <= 1;
 				end
 				OP_ADD: begin
-					ctrl_word_next[SIG_MEM_EN] = 1;
-					ctrl_word_next[SIG_B_LOAD] = 1;
+					ctrl_word_next[SIG_MEM_EN] <= 1;
+					ctrl_word_next[SIG_B_LOAD] <= 1;
 				end
 				OP_SUB: begin
-					ctrl_word_next[SIG_MEM_EN] = 1;
-					ctrl_word_next[SIG_B_LOAD] = 1;
+					ctrl_word_next[SIG_MEM_EN] <= 1;
+					ctrl_word_next[SIG_B_LOAD] <= 1;
 				end
 			endcase
 		end
 		5: begin
 			case (opcode)
 				OP_ADD: begin
-					ctrl_word_next[SIG_ADDER_EN] = 1;
-					ctrl_word_next[SIG_A_LOAD] = 1;
+					ctrl_word_next[SIG_ADDER_EN] <= 1;
+					ctrl_word_next[SIG_A_LOAD] <= 1;
 				end
 				OP_SUB: begin
-					ctrl_word_next[SIG_ADDER_SUB] = 1;
-					ctrl_word_next[SIG_ADDER_EN] = 1;
-					ctrl_word_next[SIG_A_LOAD] = 1;
+					ctrl_word_next[SIG_ADDER_SUB] <= 1;
+					ctrl_word_next[SIG_ADDER_EN] <= 1;
+					ctrl_word_next[SIG_A_LOAD] <= 1;
 				end
 			endcase
 		end
