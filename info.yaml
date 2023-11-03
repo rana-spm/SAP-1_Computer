@@ -53,13 +53,19 @@ documentation:
       and the enable signal allows the bus to receive a signal. The bus is 8-bit width since it is an 8 bit computer, and the registers
       are also 8-bit registers. 
       The computer can only perform addition, whether it is positive numbers or negative numbers (substraction). 
-      The signals information is stored within the memory module. There bus operations are coordinated with a series of multiplexers and        the instruction execution set gives the SAP-1 a total of six stages from 0 to 5, repeating all over again. The more important module      is the controller. It controlls the assertion execution according to the stimuli from the stages.
+      The signals information is stored within the memory module. There bus operations are coordinated with a series of multiplexers and      
+      the instruction execution set gives the SAP-1 a total of six stages from 0 to 5, repeating all over again. 
+      The more important module      is the controller. It controlls the assertion execution according to the stimuli from the stages.
       The stages 3 to 5 five depend on the instructions of the operation codes. 
 
     
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      The SAP-1 computer is often test using a 7-segment display to show the bus output, which gives the information of the current             operations that are beign performed.
+      Design Output Reading Section
+      The design is engineered to read the output signal generated from the bus, which contains the information 
+      of the add and subtract operations executed by the design. Currently, the only method to read the signals 
+      is through an oscilloscope. However, a significant enhancement would be the implementation of a state machine 
+      controlling a 3 7-segment display to show the numbers on the 8-bit bus (up to 255).
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
     - n/a

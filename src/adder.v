@@ -1,12 +1,12 @@
 `default_nettype none
 `timescale 1ns/1ns
 module adder(
-	input[7:0] a,
-	input[7:0] b,
-	input sub,
-	output[7:0] out
-);
+    input[7:0]  a,
+    input[7:0]  b,
+    input       sub,
+    output[7:0] out
+    );
 
-assign out = (sub) ? a-b : a+b;
+    assign out = (sub) ? a-b : a+b;
 
 endmodule
