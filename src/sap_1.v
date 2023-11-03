@@ -1,5 +1,5 @@
 `default_nettype none
-`timescale 1ns/1ns
+`timescale 1ns/1ps
 module sap_1(
 	input clk,  // Change it to clk
 	input rst, // Declare rst as an input instead of wire

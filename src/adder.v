@@ -1,5 +1,5 @@
 `default_nettype none
-`timescale 1ns/1ns
+`timescale 1ns/1ps
 module adder(
     input[7:0]  a,
     input[7:0]  b,
