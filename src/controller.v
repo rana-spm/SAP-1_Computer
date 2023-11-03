@@ -27,15 +27,6 @@ module controller(
     
     reg [2:0]  stage;
     reg [11:0] control_word;
-    reg [11:0] control_word_piped;
-    
-    always @(posedge clk) begin
-        if (rst) begin
-	    control_word_piped <= 12'b0;  
-  	end else begin
-  	    control_word_piped <= control_word;
-	end
-    end
     
     always @(posedge clk) begin
         // Reset condition
@@ -49,64 +40,64 @@ module controller(
                 stage <= stage + 1;
             end
     
-        	control_word_piped = 12'b0;
+        	control_word = 12'b0;
         	case (stage)
         		0: begin
-        			control_word_piped[SIG_PC_EN] = 1;
-        			control_word_piped[SIG_MEM_LOAD] = 1;
+        			control_word[SIG_PC_EN] = 1;
+        			control_word[SIG_MEM_LOAD] = 1;
         		end
         		1: begin
-        			control_word_piped[SIG_PC_INC] = 1;
+        			control_word[SIG_PC_INC] = 1;
         		end
         		2: begin
-        			control_word_piped[SIG_MEM_EN] = 1;
-        			control_word_piped[SIG_IR_LOAD] = 1;
+        			control_word[SIG_MEM_EN] = 1;
+        			control_word[SIG_IR_LOAD] = 1;
         		end
         		3: begin
         			case (opcode)
         				OP_LDA: begin
-        					control_word_piped[SIG_IR_EN] = 1;
-        					control_word_piped[SIG_MEM_LOAD] = 1;
+        					control_word[SIG_IR_EN] = 1;
+        					control_word[SIG_MEM_LOAD] = 1;
         				end
         				OP_ADD: begin
-        					control_word_piped[SIG_IR_EN] = 1;
-        					control_word_piped[SIG_MEM_LOAD] = 1;
+        					control_word[SIG_IR_EN] = 1;
+        					control_word[SIG_MEM_LOAD] = 1;
         				end
         				OP_SUB: begin
-        					control_word_piped[SIG_IR_EN] = 1;
-        					control_word_piped[SIG_MEM_LOAD] = 1;
+        					control_word[SIG_IR_EN] = 1;
+        					control_word[SIG_MEM_LOAD] = 1;
         				end
         				OP_HLT: begin
-        					control_word_piped[SIG_HLT] = 1;
+        					control_word[SIG_HLT] = 1;
         				end
         			endcase
         		end
         		4: begin
         			case (opcode)
         				OP_LDA: begin
-        					control_word_piped[SIG_MEM_EN] = 1;
-        					control_word_piped[SIG_A_LOAD] = 1;
+        					control_word[SIG_MEM_EN] = 1;
+        					control_word[SIG_A_LOAD] = 1;
         				end
         				OP_ADD: begin
-        					control_word_piped[SIG_MEM_EN] = 1;
-        					control_word_piped[SIG_B_LOAD] = 1;
+        					control_word[SIG_MEM_EN] = 1;
+        					control_word[SIG_B_LOAD] = 1;
         				end
         				OP_SUB: begin
-        					control_word_piped[SIG_MEM_EN] = 1;
-        					control_word_piped[SIG_B_LOAD] = 1;
+        					control_word[SIG_MEM_EN] = 1;
+        					control_word[SIG_B_LOAD] = 1;
         				end
         			endcase
         		end
         		5: begin
         			case (opcode)
         				OP_ADD: begin
-        					control_word_piped[SIG_ADDER_EN] = 1;
-        					control_word_piped[SIG_A_LOAD] = 1;
+        					control_word[SIG_ADDER_EN] = 1;
+        					control_word[SIG_A_LOAD] = 1;
         				end
         				OP_SUB: begin
-        					control_word_piped[SIG_ADDER_SUB] = 1;
-        					control_word_piped[SIG_ADDER_EN] = 1;
-        					control_word_piped[SIG_A_LOAD] = 1;
+        					control_word[SIG_ADDER_SUB] = 1;
+        					control_word[SIG_ADDER_EN] = 1;
+        					control_word[SIG_A_LOAD] = 1;
         				end
         			endcase
         		end
@@ -114,6 +105,6 @@ module controller(
         end
     end
     
-    assign out = control_word_piped;
+    assign out = control_word;
     
 endmodule
