@@ -70,9 +70,6 @@ module controller(
         				OP_HLT: begin
         					control_word[SIG_HLT] <= 1;
 					end
-        				default: begin
-						opcode = 4b'0000;
-					end
         			endcase
         		end
         		4: begin
@@ -89,9 +86,6 @@ module controller(
         					control_word[SIG_MEM_EN] <= 1;
         					control_word[SIG_B_LOAD] <= 1;
 					end
-					default: begin
-						opcode = 4'b0000;
-					end
         			endcase
         		end
         		5: begin
@@ -105,9 +99,6 @@ module controller(
         					control_word[SIG_ADDER_EN] <= 1;
         					control_word[SIG_A_LOAD] <= 1;
         				end
-					default: begin
-						opcode = 4'b0000;
-					end
         			endcase
         		end
         	endcase
