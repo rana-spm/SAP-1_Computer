@@ -25,11 +25,19 @@ the instruction execution set gives the SAP-1 a total of six stages from 0 to 5,
 The more important module      is the controller. It controlls the assertion execution according to the stimuli from the stages.
 The stages 3 to 5 five depend on the instructions of the operation codes. 
 
-# GDS
+# Runs info
 
 This is how the GDS look like 
 
-![Generated 3D GDS](C:\Users\brand\OneDrive - Nanyang Technological University\Documents\ASIC\gds.png)
+![Generated 3D GDS](gds.png)
+
+Routing stats
+
+![Routing statistics](routing_stats.png)
+
+Cell usage 
+
+![Cell Usage by Category](cell_usage.png)
 
 # What is Tiny Tapeout?
 
