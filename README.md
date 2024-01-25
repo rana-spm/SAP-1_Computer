@@ -14,6 +14,7 @@ The architecture contains various modules, including
 - Instruction Register
 - Bus
 - Controller
+
 This design doesn't have inputs, it is dependent only on the clock that coordinates sequence of the computer's operation. 
 Its operation consists on the communication that that bus provides between modules; the signal load dumps information into a module
 and the enable signal allows the bus to receive a signal. The bus is 8-bit width since it is an 8 bit computer, and the registers
