@@ -27,6 +27,8 @@ The stages 3 to 5 five depend on the instructions of the operation codes.
 
 # Runs info
 
+Main run can be observed here https://github.com/brandcrz88/SAP-1_Computer/actions/runs/6740984456
+
 This is how the GDS look like 
 
 ![Generated 3D GDS](gds.png)
