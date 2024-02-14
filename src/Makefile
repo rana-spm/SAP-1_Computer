@@ -8,7 +8,7 @@ TOPLEVEL_LANG ?= verilog
 # normal simulation
 ifneq ($(GATES),yes)
 
-# this is the only part you should need to modify:
+# modify:
 VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/tt_um_sap_1.v $(PWD)/sap_1.v $(PWD)/clock.v $(PWD)/pc.v $(PWD)/reg_a.v $(PWD)/reg_b.v $(PWD)/memory.v $(PWD)/adder.v $(PWD)/ir.v $(PWD)/controller.v  
 
 else
