@@ -14,6 +14,8 @@ project:
     - reg_a.v
     - reg_b.v
     - adder.v
+    - multiplier.v
+    - divider.v
     - ir.v
     - controller.v
   top_module:  "tt_um_sap_1"      # put the name of your top module here, make it unique by prepending your github username
@@ -29,13 +31,15 @@ yaml_version: 4
 #
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
-  author:       "Brandon Cruz"
+  author:       "Jonathon Zhou, Rana Singh, Anika Agarwal"
   title:        "SAP-1 Computer"
   language:     "Verilog"
-  description:  "Simple as Possible  computer into ASIC"
+  description:  "Simple as Possible computer with multiplier and divider into ASIC"
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
+      (Forked from Brandon Cruz's SAP-1 Design)
+
       Originally, Malvino and Brown presented the SAP-1 architecture in a book called Digital Computer Electronics. 
       The design gained massive popularity when it was build as a bread board computer by Ben Eater on a series of YouTube videos. 
       The architecture contains various modules, including
@@ -44,6 +48,8 @@ documentation:
       - Register A
       - Register B
       - Adder
+      - Multiplier
+      - Divider
       - Memory
       - Instruction Register
       - Bus
@@ -100,7 +106,7 @@ documentation:
 # The following fields are optional
   tag:          "sap_1, test"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
   external_hw:  "Oscilloscope"      # Describe any external hardware needed
-  discord:      "Brandonz88"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
   clock_hz:     10000000       # Clock frequency in Hz (if required)
   picture:      ""      # relative path to a picture in your repository
