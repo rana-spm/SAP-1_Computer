@@ -31,7 +31,7 @@ yaml_version: 4
 #
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
-  author:       "Jonathon Zhou, Rana Singh, Anika Agarwal"
+  author:       "Jonathan Zhou, Rana Singh, Anika Agarwal"
   title:        "SAP-1 Computer"
   language:     "Verilog"
   description:  "Simple as Possible computer with multiplier and divider into ASIC"
