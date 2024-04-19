@@ -116,5 +116,5 @@ module controller(
     end
     
     // Output only the relevant 12 bits for compatibility with existing infrastructure
-    assign out[11:0] = control_word[11:0]; 
+    assign out[13:0] = control_word[13:0]; 
 endmodule
