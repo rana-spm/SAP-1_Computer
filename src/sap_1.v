@@ -9,33 +9,7 @@ module sap_1(
     reg[7:0] bus;
     reg[7:0] bus_reg;
     
-    always @(*) begin
-    	if (ir_en) begin
-    		bus = ir_out;
-    	end else if (adder_en) begin
-    		bus = adder_out;
-    	end else if (multiplier_en) begin  // Added for multiplier output
-            bus = multiplier_out;
-        end else if (divider_en) begin  // Added for divider output
-            bus = divider_out;
-        end else if (a_en) begin
-    		bus = a_out;
-    	end else if (mem_en) begin
-    		bus = mem_out;
-    	end else if (pc_en) begin
-    		bus = pc_out;
-    	end else begin
-    		bus = 8'b0;
-    	end
-    end
     
-    always @(posedge clk) begin
-           if (rst) begin
-               bus_reg <= 8'b0;
-           end else begin
-               bus_reg <= bus; // Pipelining the bus
-           end
-    end
     
     wire hlt;
     wire int_clk;
@@ -147,7 +121,35 @@ module sap_1(
             divider_en      // Added control signal for divider
         })
     );
+
+    always @(*) begin
+    	if (ir_en) begin
+    		bus = ir_out;
+    	end else if (adder_en) begin
+    		bus = adder_out;
+    	end else if (multiplier_en) begin  // Added for multiplier output
+            bus = multiplier_out;
+        end else if (divider_en) begin  // Added for divider output
+            bus = divider_out;
+        end else if (a_en) begin
+    		bus = a_out;
+    	end else if (mem_en) begin
+    		bus = mem_out;
+    	end else if (pc_en) begin
+    		bus = pc_out;
+    	end else begin
+    		bus = 8'b0;
+    	end
+    end
     
+    always @(posedge clk) begin
+           if (rst) begin
+               bus_reg <= 8'b0;
+           end else begin
+               bus_reg <= bus; // Pipelining the bus
+           end
+    end
+	
     assign bus_out = bus_reg;
 
 endmodule
