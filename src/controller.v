@@ -4,7 +4,7 @@ module controller(
     input       clk,
     input       rst,
     input[3:0]  opcode,
-    output reg[11:0] out
+    output reg[13:0] out
     );
 
     localparam SIG_HLT       = 11;
@@ -116,5 +116,5 @@ module controller(
     end
     
     // Output only the relevant 12 bits for compatibility with existing infrastructure
-    assign out = control_word[11:0]; 
+    assign out[13:0] = control_word[13:0]; 
 endmodule
